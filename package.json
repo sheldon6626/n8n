@@ -1,0 +1,15 @@
+{
+  "name": "n8n-cloudflare-container",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "tsc --noEmit",
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261016.1",
+    "typescript": "^7.0.2",
+    "wrangler": "^4.151.1"
+  }
+}

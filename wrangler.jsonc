@@ -1,0 +1,30 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "n8n-now9888",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-17",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
+  "routes": [
+    { "pattern": "n8n.now9888.com", "custom_domain": true }
+  ],
+  "containers": [
+    {
+      "class_name": "N8NContainer",
+      "image": "./Dockerfile",
+      "instance_type": "standard-1",
+      "max_instances": 1
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      { "name": "N8N", "class_name": "N8NContainer" }
+    ]
+  },
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["N8NContainer"] }
+  ],
+  "triggers": {
+    "crons": ["* * * * *"]
+  }
+}
